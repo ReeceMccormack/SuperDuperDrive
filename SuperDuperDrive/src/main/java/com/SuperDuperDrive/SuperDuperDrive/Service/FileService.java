@@ -16,11 +16,11 @@ public class FileService {
         this.fileMapper = noteMapper;
     }
 
-    public void createFile(File file) throws FileAlreadyExitsException {
+    public void createFile(File file) throws FileAlreadyExistsException {
         if(this.fileMapper.getFileByFilename(file.getUserid(), file.getFilename()).isEmpty()){
             this.fileMapper.insert(file);
         }else{
-            throw new FileAlreadyExitsException();
+            throw new FileAlreadyExistsException();
         }
     }
 

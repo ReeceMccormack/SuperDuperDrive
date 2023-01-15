@@ -5,7 +5,7 @@ import com.SuperDuperDrive.SuperDuperDrive.Model.CredentialForm;
 import com.SuperDuperDrive.SuperDuperDrive.Model.File;
 import com.SuperDuperDrive.SuperDuperDrive.Model.NoteForm;
 import com.SuperDuperDrive.SuperDuperDrive.Service.CredentialService;
-import com.SuperDuperDrive.SuperDuperDrive.Service.FileAlreadyExitsException;
+import com.SuperDuperDrive.SuperDuperDrive.Service.FileAlreadyExistsException;
 import com.SuperDuperDrive.SuperDuperDrive.Service.FileService;
 import com.SuperDuperDrive.SuperDuperDrive.Service.NoteService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -56,7 +56,7 @@ public class FileController {
                 fileObj.setFiledata(file.getBytes());
                 fileService.createFile(fileObj);
                 model.addAttribute("success", "File saved!");
-            } catch (FileAlreadyExitsException e) {
+            } catch (FileAlreadyExistsException e) {
                 e.printStackTrace();
                 model.addAttribute("errorMessage", "Oops! file already exists!");
             } catch (IOException e) {

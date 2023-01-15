@@ -34,7 +34,7 @@ public class CredentialController {
         this.credentialsService = credentialsService;
     }
 
-    @PostMapping("credentials")
+    @PostMapping("/credentials")
     public String addCredential(@ModelAttribute("credential") CredentialForm credentialForm, @ModelAttribute("note") NoteForm note, Model model, Authentication authentication) {
         System.out.println("postCredential" + credentialForm);
         String username = authentication.getName();

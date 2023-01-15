@@ -3,39 +3,31 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
   <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/bootstrap.min.css}">
-
   <title>Home</title>
 
 </head>
 <body class="p-3 mb-2 bg-light text-black">
 <div class="container">
-
   <div id="logoutDiv">
     <form action="#" method="POST" th:action="@{/logout}">
       <button type="submit" class="btn btn-secondary float-right" id="logout-button">Logout</button>
     </form>
   </div>
-
-
   <div id="contentDiv" style="clear: right;">
-
     <div th:replace="/result"></div>
-
     <nav style="clear: right;">
       <div class="nav nav-tabs" id="nav-tab" role="tablist">
-        <a class="nav-item nav-link active" id="nav-files-tab" data-toggle="tab" href="#nav-files" role="tab"
+        <a class="nav-item nav-link active" id="nav-files-tab" data-bs-toggle="tab" href="#nav-files" role="tab"
            aria-controls="nav-files" aria-selected="true" th:onclick="'hideMessage()'">Files</a>
-        <a class="nav-item nav-link" id="nav-notes-tab" data-toggle="tab" href="#nav-notes" role="tab"
+        <a class="nav-item nav-link" id="nav-notes-tab" data-bs-toggle="tab" href="#nav-notes" role="tab"
            aria-controls="nav-notes" aria-selected="false" th:onclick="'hideMessage()'"> Notes</a>
-        <a class="nav-item nav-link" id="nav-credentials-tab" data-toggle="tab" href="#nav-credentials"
+        <a class="nav-item nav-link" id="nav-credentials-tab" data-bs-toggle="tab" href="#nav-credentials"
            role="tab" aria-controls="nav-credentials" aria-selected="false" th:onclick="'hideMessage()'">Credentials</a>
       </div>
     </nav>
     <div class="tab-content" id="nav-tabContent">
       <div class="tab-pane fade show active" id="nav-files" role="tabpanel" aria-labelledby="nav-files-tab">
-
         <!-- Add file -->
         <form action="#" enctype="multipart/form-data" method="POST" th:action="@{'/files'}">
           <div class="container">
@@ -83,7 +75,6 @@
                 onclick="showNoteModal()">
           + Add a New Note
         </button>
-
         <div class="table-responsive">
           <table class="table table-striped" id="userTable">
             <thead>
@@ -119,7 +110,6 @@
             </tbody>
           </table>
         </div>
-
         <div class="modal fade" id="noteModal" tabindex="-1" role="dialog" aria-labelledby="noteModalLabel"
              aria-hidden="true">
           <div class="modal-dialog" role="document">
@@ -149,8 +139,6 @@
                   </div>
                   <button id="noteSubmit" type="submit" class="d-none"></button>
                 </form>
-
-
               </div>
               <div class="modal-footer">
                 <button type="button" id="close-note-button" class="btn btn-secondary"
@@ -171,7 +159,6 @@
                 onclick="showCredentialModal()">
           + Add a New Credential
         </button>
-
         <div class="table-responsive">
           <table class="table table-striped" th:object="${credentials}" id="credentialTable">
             <thead>
